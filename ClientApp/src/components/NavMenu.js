@@ -1,35 +1,36 @@
 ﻿import React from 'react';
 import { Link } from 'react-router-dom';
-import { Glyphicon, Nav, Navbar, NavItem } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
-import './NavMenu.css';
+import HomeIcon from 'material-ui-icons/Home';
+import PlusOneIcon from 'material-ui-icons/PlusOne';
+import SwapHorizIcon from 'material-ui-icons/SwapHoriz';
+import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
+import Divider from 'material-ui/Divider';
+//import './NavMenu.css';
 
 export default props => (
-  <Navbar inverse fixedTop fluid collapseOnSelect>
-    <Navbar.Header>
-      <Navbar.Brand>
-        <Link to={'/'}>react_net_template</Link>
-      </Navbar.Brand>
-      <Navbar.Toggle />
-    </Navbar.Header>
-    <Navbar.Collapse>
-      <Nav>
-        <LinkContainer to={'/'} exact>
-          <NavItem>
-            <Glyphicon glyph='home' /> Home
-          </NavItem>
-        </LinkContainer>
-        <LinkContainer to={'/counter'}>
-          <NavItem>
-            <Glyphicon glyph='education' /> Counter
-          </NavItem>
-        </LinkContainer>
-        <LinkContainer to={'/fetchdata'}>
-          <NavItem>
-            <Glyphicon glyph='th-list' /> Fetch data
-          </NavItem>
-        </LinkContainer>
-      </Nav>
-    </Navbar.Collapse>
-  </Navbar>
+    <div>
+        <List>
+            <ListItem button component={Link} to="/">
+                <ListItemIcon>
+                    <HomeIcon />
+                </ListItemIcon>
+                <ListItemText primary="Home" />
+            </ListItem>
+            <ListItem button component={Link} to="/counter">
+                <ListItemIcon>
+                    <PlusOneIcon />
+                </ListItemIcon>
+                <ListItemText primary="Counter" />
+            </ListItem>
+        </List>
+        <Divider />
+        <List>
+            <ListItem button component={Link} to="/fetchdata">
+                <ListItemIcon>
+                    <SwapHorizIcon />
+                </ListItemIcon>
+                <ListItemText primary="Fetch data" />
+            </ListItem>
+        </List>
+    </div>
 );
